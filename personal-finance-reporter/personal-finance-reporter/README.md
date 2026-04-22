@@ -1,27 +1,27 @@
-# 📊 Personal Finance Reporter
+# Personal Finance Reporter
 
 ![Python](https://img.shields.io/badge/Python-3.10%2B-3776AB?style=flat&logo=python&logoColor=white)
 ![License](https://img.shields.io/badge/License-MIT-2ECC71?style=flat)
 ![Tests](https://img.shields.io/badge/Tests-pytest-E74C3C?style=flat&logo=pytest&logoColor=white)
 ![Status](https://img.shields.io/badge/Status-Active-brightgreen?style=flat)
 
-A command-line tool that reads personal finance data from a CSV file and generates a **professional multi-page PDF report** with charts, tables and key statistics — in seconds.
+A command-line tool that reads personal finance data from a CSV file and generates a professional multi-page PDF report with charts, tables and key statistics.
 
 ---
 
-## ✨ Features
+## Features
 
-- **Automatic PDF generation** — cover page, stat cards, charts and tables
-- **3 embedded charts** — income vs expenses bar chart, category pie chart, monthly balance
-- **Monthly breakdown table** with savings rate per month
-- **Category ranking** to identify your biggest spending areas
-- **Clean CLI** — works with any CSV following the required format
-- **Robust validation** — helpful error messages for malformed input
-- **Full test suite** with pytest
+- Automatic PDF generation — cover page, stat cards, charts and tables
+- 3 embedded charts — income vs expenses bar chart, category pie chart, monthly balance
+- Monthly breakdown table with savings rate per month
+- Category ranking to identify your biggest spending areas
+- Clean CLI — works with any CSV following the required format
+- Robust input validation with helpful error messages
+- Full test suite with pytest
 
 ---
 
-## 🚀 Quick Start
+## Quick Start
 
 ```bash
 # 1. Clone the repository
@@ -39,11 +39,11 @@ pip install -r requirements.txt
 python main.py
 ```
 
-The report will be saved to `reports/finance_report.pdf`. Open it and see your finances summarised.
+The report will be saved to `reports/finance_report.pdf`.
 
 ---
 
-## 📂 Project Structure
+## Project Structure
 
 ```
 personal-finance-reporter/
@@ -57,7 +57,8 @@ personal-finance-reporter/
 │   └── test_finance.py      # pytest test suite
 ├── data/
 │   └── expenses_sample.csv  # Sample dataset
-├── reports/                 # Generated PDFs (git-ignored)
+├── demo/
+│   └── finance_report.pdf   # Sample output
 ├── requirements.txt
 ├── .gitignore
 ├── LICENSE
@@ -66,19 +67,16 @@ personal-finance-reporter/
 
 ---
 
-## 📋 CSV Format
+## CSV Format
 
-Your input file must contain the following columns:
+| Column        | Type    | Example                  | Notes                         |
+|---------------|---------|--------------------------|-------------------------------|
+| `date`        | date    | `2024-01-15`             | ISO 8601 format (YYYY-MM-DD)  |
+| `category`    | string  | `Food`                   | Any label you choose          |
+| `description` | string  | `Supermarket`            | Free text                     |
+| `amount`      | float   | `45.30`                  | Positive number               |
+| `type`        | string  | `expense`                | Must be `income` or `expense` |
 
-| Column        | Type    | Example          | Notes                          |
-|---------------|---------|------------------|--------------------------------|
-| `date`        | date    | `2024-01-15`     | ISO 8601 format (YYYY-MM-DD)   |
-| `category`    | string  | `Food`           | Any label you choose           |
-| `description` | string  | `Supermarket`    | Free text                      |
-| `amount`      | float   | `45.30`          | Positive number                |
-| `type`        | string  | `expense`        | Must be `income` or `expense`  |
-
-**Example:**
 ```csv
 date,category,description,amount,type
 2024-01-15,Income,Salary,1800.00,income
@@ -88,7 +86,7 @@ date,category,description,amount,type
 
 ---
 
-## 🖥️ CLI Usage
+## CLI Usage
 
 ```bash
 # Use default sample data
@@ -97,47 +95,47 @@ python main.py
 # Specify a custom input file
 python main.py --input path/to/my_expenses.csv
 
-# Specify a custom output path
+# Specify input and output paths
 python main.py --input data/2024.csv --output reports/2024_report.pdf
 
-# Show help
+# Show all options
 python main.py --help
 ```
 
 ---
 
-## 🧪 Running Tests
+## Running Tests
 
 ```bash
 pytest tests/ -v
 ```
 
-All 18 tests cover the parser, analytics engine and edge cases (missing files, invalid columns, wrong data types).
+18 tests covering the parser, analytics engine and edge cases (missing files, invalid columns, wrong data types).
 
 ---
 
-## 💡 Motivation
+## Motivation
 
 > *Dieses Projekt entstand aus dem Wunsch, meine monatlichen Ausgaben automatisch auszuwerten — ohne manuelle Arbeit in Tabellenkalkulationen. Als angehender Entwickler wollte ich ein Tool bauen, das echten Nutzen hat und gleichzeitig sauberen, testbaren Python-Code demonstriert.*
 
-This project was born from the desire to automatically analyse my monthly expenses — without manual spreadsheet work. As an aspiring developer, I wanted to build a tool with real practical value while demonstrating clean, testable Python code.
+This project was born from the desire to automatically analyse monthly expenses without manual spreadsheet work. As an aspiring developer, I wanted to build a tool with real practical value while demonstrating clean, testable Python code.
 
 ---
 
-## 🛠️ Tech Stack
+## Tech Stack
 
-| Library      | Purpose                        |
-|--------------|--------------------------------|
-| `pandas`     | Data loading and analytics     |
-| `matplotlib` | Chart generation               |
-| `reportlab`  | PDF assembly                   |
-| `pytest`     | Testing                        |
+| Library      | Purpose                    |
+|--------------|----------------------------|
+| `pandas`     | Data loading and analytics |
+| `matplotlib` | Chart generation           |
+| `reportlab`  | PDF assembly               |
+| `pytest`     | Testing                    |
 
 ---
 
-## 📄 License
+## License
 
-This project is licensed under the MIT License — see [LICENSE](LICENSE) for details.
+MIT License — see [LICENSE](LICENSE) for details.
 
 ---
 
